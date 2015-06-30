@@ -1,0 +1,634 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>SIL - <% =buscaTitulo() %></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/acordion.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="js/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <header>
+        <div class="header_container">
+            <div class="logo">
+                <img src="images/logo_sil.png" alt="Senado de la Republica Dominicana">
+            </div>
+            <div id="usr-top">
+                <div class="usrdiv">
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <div class="loged-user">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <span class="hidden-xs pl15">Hector Lara<i class="fa fa-caret-down ml5"></i></span>
+                                    <img src="images/foto_perfil_legislador.png" alt="">
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#"><i class="fa fa-user fa-fw"></i>Perfil de usuario</a></li>
+                                    <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configuración</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-sign-out"></i>Salir</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="notif-total">2</span>
+                                <div class="notification">
+                                    <i class="fa fa-bell-o"></i>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user email-list-ntfbody">
+                                <li class="ulmail-header"><strong><small>Notificaciones (17)</small></strong>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Tienes documentos pendientes</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">La iniciativas #SLO-2015-1025 se encuentra en espera de sus cambios de estados para continuar su flujo proceso...</p>
+                                        <footer>18 de mayo 2014</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Kerlin Garcia</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de agosto 2015</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Luis Arias</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de mayo</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Katherine Montero</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>10 de enero 2013</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Luis Arias</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de mayo</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Katherine Montero</strong>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>10 de enero 2013</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li align="center"><a href="#"><i class="fa fa-eye"></i> Ver todas</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="email-total">5</span>
+                                <div class="notification">
+                                    <i class="fa fa-envelope-o"></i>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user email-list-ntfbody">
+                                <li class="ulmail-header"><strong><small>Mensajes (22)</small></strong>
+                                    <div class="newemail">
+                                        <small style="float: right"><a href="#" style="color: #035BCF !important"><i class="fa fa-envelope-o"></i> Enviar un mensaje nuevo</a></small>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Santos Rodriguez</strong>
+                                    <small style="float: right"><a href="#">srodriguez@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de mayo 2014</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Kerlin Garcia</strong>
+                                    <small style="float: right"><a href="#">kerling@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de agosto 2015</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Luis Arias</strong>
+                                    <small style="float: right"><a href="#">larias@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de mayo</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Katherine Montero</strong>
+                                    <small style="float: right"><a href="#">kmontero@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>10 de enero 2013</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Luis Arias</strong>
+                                    <small style="float: right"><a href="#">larias@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>18 de mayo</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li><strong>Katherine Montero</strong>
+                                    <small style="float: right"><a href="#">kmontero@senado.gob.do</a></small>
+                                    <div class="email-list-ntf-main">
+                                        <p class="email-list-ntf">Buenos dias señor Santos le escribo para decrirle que la ...</p>
+                                        <footer>10 de enero 2013</footer>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li align="center"><a href="#"><i class="fa fa-eye"></i> Ver todos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="breadcrumb">
+            <h4><%= buscaNombre() %></h4>
+        </div>
+    </header>
+    <!-- Termina header -->
+    
+    <div class="main_container">
+        <div id="dvMenu" runat="server"></div>
+
+        <!--termina menu lateral -->
+        <div class="main_data">
+            <div class="data_header">
+            <div class="hidemenu">
+                <a class="btn btn-primary" href="#" data-original-title="" title=""><i class="fa fa-bars"></i> </a>
+            </div>
+           <h5 class="data_titulo">  <% =buscaTitulo() %> </h5>
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!--termina contenido principal -->
+        <footer class="Mfooter">
+            <p class="footer">
+                Copyright © 2010 Senado de la República Dominicana | Derechos Reservados
+            </p>
+        </footer>
+        <!--termina footer -->
+    </div>
+    <!-- scripts-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/acordion.js"></script>
+    <script src="js/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/maincod.js"></script>
+    <!-- DataTables JavaScript -->
+    <script type="text/javascript" src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <!-- Custom Index -->
+    <script type="text/javascript" type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/custom-components.js"></script>
+    <!-- <script src="js/mp.js" type="text/javascript"></script> -->
+    <script type="text/javascript">
+
+        var separaCampo = '|';
+        var dataPrincipal;
+        var cerrar = 1;
+
+        $(document).ready(function () {
+            //------------------------------------------------------------
+            $('.ic_mas').click(function () {
+
+                $("input,select,textarea").each(function () {
+                    if ($(this).attr("data-esp") != undefined) {
+                        if ($(this).attr("data-esp").indexOf("_I") > -1 || $(this).attr("data-esp").indexOf("_S") > -1) {
+                            $(this).attr("readonly", "readonly");
+
+                        }
+                        else {
+                            $(this).removeAttr("readonly");
+                        }
+                    }
+                });
+                $("select").each(function () {
+                    $(this).removeAttr("disabled");
+                });
+
+
+            });
+
+            $('.ic_lapiz').click(function () {
+                consultaBuscaId();
+                $("input,select,textarea").each(function () {
+                    if ($(this).attr("data-esp") != undefined) {
+                        if ($(this).attr("data-esp").indexOf("_C") > -1) {
+                            $(this).attr("readonly", "readonly");
+                        }
+                        else {
+                            $(this).removeAttr("readonly");
+                        }
+                    }
+
+
+                });
+                $("select").each(function () {
+                    $(this).removeAttr("disabled");
+                });
+
+            });
+
+            $('.ic_monitor').click(function () {
+
+                $("input,select,textarea").each(function () {
+                    $(this).attr("readonly", "readonly");
+                });
+                $("select").each(function () {
+                    $(this).attr("disabled", true);
+                });
+                consultaBuscaId();
+            });
+            //------------------------------------------------------------
+            $("input:not([readonly]), select,textarea").keydown(function (e) {
+                if (e.which == 13) {
+                    if (validaCampo($(this).attr("id"))) {
+                        proximoCampo(this);
+                    }
+                    return false;
+                }
+            });
+
+            $("#btnGuardarModal").click(function () {
+                if (validar()) {
+                    grabarGeneral();
+                    limpiarGeneral();
+                    consultaPrincipal(tabla);
+                    
+                }
+                if (cerrar == 1) {
+                    $("#modal1").modal("hide");
+
+                }
+            })
+
+            $("#btnGuardarLimpiarModal").click(function () {
+                if (validar()) {
+                    grabarGeneral();
+                    limpiarGeneral();
+                }
+            })
+
+            $("#btnCerrarModal").click(function () {
+                consultaPrincipal(tabla);
+                limpiarGeneral();
+            });
+        });
+
+        function limpiarGeneral() {
+            modo = 1;
+            $("input,select,textarea").each(function () {
+                if ($(this).attr("data-esp") != undefined) {
+                    if ($(this).attr("data-esp").indexOf("_L") == -1) {
+                        if ($(this).prop('type') == "select-one") {
+                            $(this)[0].selectedIndex = 0;
+                        }
+                        else {
+                            $(this)[0].value = '';
+                        }
+                    }
+                }
+            });
+        }
+
+        function validar() {
+            return validaCampo('');
+        }
+
+        function llenaComboit(tabla) {
+
+            $(document).find("select").each(function () {
+                if ($(this).attr("data-esp") != undefined) {
+                    if ($(this).attr("data-esp").indexOf("_V") == -1) {
+                        llenaCombo($(this)[0].id, '', tabla);
+                    }
+                }
+            });
+        }
+
+        function llenaCombo(control, where, tabla) {
+
+            var param = "'combo':'" + control + "','where':'" + where + "','tabla':'" + tabla + "'";
+
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "uti.aspx/LlenaCombo",
+                data: "{" + param + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var m = response.d;
+                    $('#' + control).find('option').remove().end();
+                    $.each(m, function (val, text) {
+                        $('#' + control).append($('<option></option>').val(text.Value).html(text.Text));
+                    });
+
+                    $('#' + control).get(0).selectedIndex = 0;
+                    return false;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Llenando Combo");
+                }
+            });
+        }
+
+        function consultaPrincipal(tabla) {
+
+            $("#dvPrincipal").html('');
+            var param = "'consulta':'" + tabla + "'";
+
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "uti.aspx/consultaPrincipal",
+                data: "{" + param + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var m = response.d;
+                    $("#dvPrincipal").html(m);
+
+                    dataPrincipal = $('#tbPrincipal').dataTable({
+                        "order": [[1, "desc"]]
+                    });
+
+                    return false;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: consultaPrincipal");
+                }
+            });
+        }
+
+        function proximoCampo(obj) {
+            var cont = 0;
+            $("input:not([readonly]), select,textarea").each(function () {
+
+                if (obj.id == this.id) {
+                    cont = 1;
+                }
+                else {
+                    if (cont == 1) {
+                        this.focus();
+                        return false;
+                    }
+                }
+            });
+        }
+
+        function validaCampo(obj) {
+
+            var retorna = true;
+            $("input,textarea").each(function () {
+                if ($(this).attr("data-esp") != undefined) {
+                    if ($(this).attr("data-esp").indexOf("_R") > -1) {
+                        if (obj == '' || obj == $(this).attr("id")) {
+                            if ($(this).prop('type') == "select-one" && $(this).val() > '') {
+                                alert('El combo: ' + arreglaDataEsp($(this).attr("data-esp")) + " esta incorrecto, por favor verifique...");
+                                $(this).focus();
+                                retorna = false;
+                                return false;
+                            }
+                            else if ($(this).attr("data-esp").indexOf("_N") > -1 && intVal($(this).val()) <= 0) {
+                                alert('El Campo: ' + arreglaDataEsp($(this).attr("data-esp")) + " debe ser mayor que cero, por favor verifique...");
+                                $(this).focus();
+                                retorna = false;
+                                return false;
+                            }
+                            else if ($(this).attr("data-esp").indexOf("_F") > -1 && (!(fechaValida(fechaAmd($(this).val()))))) {
+                                alert('El Campo: ' + arreglaDataEsp($(this).attr("data-esp")) + " es una fecha incorrecta, por favor verifique...");
+                                $(this).focus();
+                                retorna = false;
+                                return false;
+                            }
+                            else if ($(this).val() == "") {
+
+                                alert(arreglaDataEsp($(this).attr("data-esp")) + " no es correcto, por favor verifique...");
+                                $(this).focus();
+                                retorna = false;
+                                return false;
+                            }
+                        }
+                    }
+                }
+            });
+
+            return retorna;
+        }
+
+        function fechaAmd(fecha) {
+            arr = fecha.split("/");
+            if (typeof arr[2] == 'undefined' || typeof arr[1] == 'undefined' || typeof arr[0] == 'undefined')
+                return '0000/00/00';
+            else
+                return arr[2] + '/' + arr[1] + '/' + arr[0];
+        }
+
+
+        function fechaValida(fecha) {
+            arr = fecha.split("/");
+            f = new Date(fecha);
+
+            if (f.getDate() == arr[2] && f.getMonth() + 1 == arr[1] && f.getFullYear() == arr[0]) {
+                return true
+            }
+
+            return false;
+
+        }
+
+        function arreglaDataEsp(data) {
+            return data.substring(0, data.indexOf("_"));
+        }
+        function arreglaIndica(data) {
+            return data.substring(data.indexOf("_"));
+        }
+
+        function grabarGeneral() {
+            var campo = '';
+
+            $("*").find("input, select").each(function () {
+                var data = $(this).attr("data-esp");
+                if (data != undefined) {
+                    if (data.indexOf("_G") > -1) {
+                        campo += $(this).attr("id") + "." + arreglaIndica(data) + '=' + $(this).val() + separaCampo;
+                    }
+                }
+            });
+
+            var param = "'modo':" + modo + ",'campo':'" + campo + "','tabla':'" + tabla + "'";
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "uti.aspx/GrabaDatosGeneral",
+                data: "{" + param + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var m = response.d;
+                    if (m == -1) {
+                        cerrar = 2;
+                        alert("ha ocurrido un error en la ejecucion del esta peticion....");
+                    }
+                    else {
+                        cerrar = 1;
+                        asignarCodigoGrabado(m);
+                        alert("Los datos fueron grabado satisfactoriamente....");
+                    }
+                    return false;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: grabarGeneral");
+                }
+            });
+
+        }
+
+        function asignarCodigoGrabado(clave) {
+            modo = 2;
+            $("*").find("input, select").each(function () {
+                var data = $(this).attr("data-esp");
+                if (data != undefined) {
+                    if (data.indexOf("_I") > -1 || data.indexOf("_S") > -1) {
+                        $(this).val(clave);
+                        return false;
+                    }
+                }
+            });
+        }
+        function verificaMarcado(campo) {
+
+            for (var i = 0; i < dataPrincipal.fnGetNodes().length; i++) {
+                if (campo.id != dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].id) {
+                    dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].checked = false;
+                }
+            }
+        }
+        function consultaBuscaId() {
+            var llave = ''
+            for (var i = 0; i < dataPrincipal.fnGetNodes().length; i++) {
+                if (dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].checked == true) {
+                    llave = dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].value;
+
+                    //if (dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].id.indexOf("frm_") > -1)
+                    //{
+                    //    llave = dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].id.split("_")[1] + "_" + dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].id.split("_")[2];
+                    //}
+                    //else
+                    //{
+                    //    llave = dataPrincipal.fnGetNodes()[i].cells[0].childNodes[1].id.split("_")[1];
+                    //}
+                    break;
+                }
+            }
+            if (llave == '') {
+                alert("Debe marcar un registro para continuar");
+                return false;
+            }
+            $("#modal1").modal("show");
+
+            $("*").find("input, select").each(function () {
+                var data = $(this).attr("data-esp");
+                if (data != undefined) {
+                    if (data.indexOf("_K") > -1) {
+                        $(this).val(llave);
+                        buscarRegistro(($(this).attr("id") + '=' + llave), tabla);
+                        return false;
+                    }
+                }
+            });
+
+        }
+        function buscarRegistro(llave, tabla) {
+            var param = "'llave':'" + llave + "','tabla':'" + tabla + "'";
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "uti.aspx/buscarRegistro",
+                data: "{" + param + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var m = response.d;
+                    if (m == -1) {
+                        alert("ha ocurrido un error en la ejecucion del esta peticion....");
+                    }
+                    else {
+                        eval(m);
+                    }
+                    return false;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: buscarRegistro");
+                }
+            });
+        }
+
+        function ponerValor(nombre, valor) {
+            $("*").find("input, select").each(function () {
+                if ($(this)[0].id.toUpperCase().indexOf(nombre.toUpperCase()) == 0) {
+                    if ($(this).attr("data-esp") != undefined) {
+                        $(this).val(valor);
+                        return false;
+                    }
+                }
+            });
+        }
+        function intVal(v) {
+            v = String(v).replace(/\$|\,/g, '');
+
+            var valor = 0;
+            if (String(v).indexOf(".") > -1) {
+                valor = parseFloat(v);
+            }
+            else {
+                valor = parseInt(v);
+            }
+
+            if (isNaN(valor))
+                return 0;
+            else
+                return valor;
+        }
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $( "#AdmLetHasta, #AdmLetDesde, #AdmplegDesde, #AdmplegHasta, #AdmpcoDesde, #AdmpcoHasta, #maninifrecepcion" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat:"dd/mm/yy",
+                dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            });
+        });
+    </script>
+    <!-- scripts-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

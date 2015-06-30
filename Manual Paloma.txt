@@ -1,0 +1,72 @@
+Indicadores de Paloma
+
+Atributos que no pueden faltar en los <input> con el atributo "data-esp"
+
+También tener en cuenta que el atributo "id" debe tener el mismo nombre del campo de la DB
+
+Indicadores en "data-esp"
+	
+	_R : Campo requerido
+	_N : Campo numérico
+	_F : Campo fecha
+	_C : Campo clave
+	_S : Campo de tabla secuencia 
+	_G : Campo que se guarda
+	_Q : Campo que no se guarda
+	_M : Campo de moneda
+	_k : Campo llave de la Pantalla no de la tabla 
+	_L : El campo no se limpia
+	_W : Campo view de tabla 
+	_V : Campo select que no carga desde la base de datos
+	_I : Campo con tabla identity
+
+Nota:
+	-- Si tiene _S o _I en adiciona, deben estar protegidos.
+	-- Si tiene _C en modifica, debe estar protegido.
+
+ 
+1.- Cambiar el path del master
+
+2.- Copiar las siguientes lineas 
+	$(document).ready(function () {
+            tabla = 'mAdmIns';
+            llenaComboit(tabla);
+            consultaPrincipal(tabla);
+            modo = 1;
+
+            $('.ic_mas').click(function () {
+                $("#modal1").modal("show");
+            });
+
+            $('.ic_lapiz').click(function () {
+                consultaBuscaId();                
+            });
+        });
+3. Cambiar el nombre de la tabla por el real 
+
+4. Sustituir el continido de panel-heading
+	<div class="panel-heading">
+                            <div class="table-responsive" id="dvPrincipal">                                
+                            </div>
+                        </div>
+5.- Agregar los indicadores _I_K al primer campo.
+6.- Sustituir el div 
+	<div class="modal-footer">
+                            <button id="btnGuardarModal" type="button" class="btn btn-primary">
+                                <i class="fa fa-save"></i>Guardar</button>
+                            <button id="btnGuardarLimpiarModal" type="button" class="btn btn-info">
+                                <i class="fa fa-save"></i>Guardar / Nuevo</button>
+                            <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal">
+                                <i class="fa fa-times"></i>Cerrar</button>
+                        </div>
+7.- Insertar en lo que se hace el mantenimiento de estado con la tabla correspondiente
+INSERT INTO [dbo].[mAdmsts]
+SELECT 'mAdmlet','Activo', 1;
+INSERT INTO [dbo].[mAdmsts]
+SELECT 'mAdmlet','Inactivo', 0;
+8.- Agregar el query de consulta 
+insert into Consulta 
+select 'mAdmlet','SELECT AdmletCodigo [Id],AdmletDescripcion [Descripcion] , 
+ [Estado] FROM [dbo].mAdmlet I INNER JOIN [dbo].[mAdmsts] S ON I.AdmstsCodigo = S.AdmstsCodigo AND S.AdmstsTabla = ''mAdmlet''','Legislatura'
+
+9.- Poner identity en la tabla 
