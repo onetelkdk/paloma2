@@ -619,7 +619,7 @@
     </script>
     <script type="text/javascript">
         $(function() {
-            $( "#AdmLetHasta, #AdmLetDesde, #AdmplegDesde, #AdmplegHasta, #AdmpcoDesde, #AdmpcoHasta, #maninifrecepcion" ).datepicker({
+            $( "#AdmLetHasta, #AdmLetDesde, #AdmplegDesde, #AdmplegHasta, #AdmpcoDesde, #AdmpcoHasta, #maninifrecepcion").datepicker({
                 changeMonth: true,
                 changeYear: true,
                 dateFormat:"dd/mm/yy",
